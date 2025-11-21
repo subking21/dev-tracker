@@ -5,7 +5,7 @@ A full-stack Django web application that helps developers track their learning, 
 ## READ HERE
 I started this project beacuse I wanted to get be able to see my progress all on one website while also get better at making full-stack applications. I didn't want it to be something that I won't use as soon as I make it, like a blog app for example. It doesn't interest me to spend so much time on developing to not even use it. I **will** be using this applicaiton when I finish it (you can too), and it is easily scalable so in the future I can add more skills and practice techniques as I keep getting better at software developing. This has really helped with speeding up the learning process of making real world applications and also practicing simple logic in Leetcode at the same time.
 
-## Overview
+## Overview
 **DevTracker** is a productivity and learning companion for developers.
 It allows you to:
 - Track AlgoMap / LeetCode problems you’ve completed
