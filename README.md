@@ -51,7 +51,7 @@ Track progress as you learn:
 - Add notes for what your studied
 - Track consistency and streaks
 
-### Dashboard
+### Dashboard
 - Total problem solved
 - Difficulty distribution
 - Daily study streak
