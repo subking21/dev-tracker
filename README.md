@@ -109,7 +109,7 @@ cd dev-tracker
 ```
 - Create a virtual environment
 ```bash
-pyhton -m venv venv
+python -m venv venv
 source venv/bin/activate # Mac/Linux
 venv/Scripts/activate    # Windows
 ```
