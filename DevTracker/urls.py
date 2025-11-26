@@ -22,11 +22,6 @@ from django.urls import path, include # Import include to reference other URLcon
 
 urlpatterns = [
     path('admin/', admin.site.urls), # Admin site URL
-    # path('website/', include('website.urls', namespace='website')) # Include URLs from the 'website' app
-    # the string 'website/' in the path function defines the BASE URL for all URLs in the 'website' app
-    # if i were to remove 'website/' and just have path('', include('website.urls', namespace='website'))
-    # then the default BASE URL would lead to the 'website' app
-
-    path('', include('website.urls', namespace='website')) # here i removed 'website/' to make the BASE URL lead to the 'website' app like home page
-
+    path('', include('website.urls', namespace='website')), # here i removed 'website/' to make the BASE URL lead to the 'website' app like home page
+    path('accounts/', include('django.contrib.auth.urls')), # Include Django's built-in authentication URLs
 ]

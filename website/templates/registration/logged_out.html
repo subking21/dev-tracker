@@ -1,0 +1,9 @@
+{% extends "base.html" %} <!-- importing the base into the file -->
+
+{% block title %} 
+Logout Page
+{% endblock title %}
+
+{% block content %} 
+<p> You have been logged out. You can <a href="{% url 'website:login' %}">log in again</a> or return to the <a href="{% url 'website:homepage' %}">homepage</a>.</p>
+{% endblock content %}
