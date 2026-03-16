@@ -123,10 +123,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-LOGIN_REDIRECT_URL = 'website:/account/dashboard'  # Redirect to dashboard after login
-LOGOUT_REDIRECT_URL = 'website:/login'  # Redirect to homepage after logout
-LOGIN_URL = 'website:/login'  # URL to redirect for login
-LOGOUT_URL = 'website:/logout'  # URL to redirect for logout
+LOGIN_REDIRECT_URL = '/account/dashboard'  # Redirect to dashboard after login
+LOGOUT_REDIRECT_URL = '/registration/login'  # Redirect to homepage after logout
+LOGIN_URL = '/registration/login'  # URL to redirect for login
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

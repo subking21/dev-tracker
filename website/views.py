@@ -10,7 +10,7 @@ def home(request): # Home page view
 @login_required # Require login to access the dashboard
 def dashboard(request): # Dashboard page view 
     all_problems = Problem.objects.all()  # this is just an SQL query to get all Problem objects from the database
-    return render(request, 'account/dashboard.html', {'Problems Solved': all_problems}) # Pass the problems to the template context
+    return render(request, 'account/dashboard.html', {'problems': all_problems}) # Pass the problems to the template context
 
 def login(request): # Login page view 
     return render(request, 'login.html')

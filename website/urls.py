@@ -8,10 +8,9 @@ app_name = 'website' # Set the application namespace
 # Define the URL patterns for the 'website' app
 urlpatterns = [
     path('', views.home, name='homepage'),
-    path('/account/dashboard', views.dashboard, name='dashboard'), # the string 'dashboard' is the default URL after the BASE URL so it will be localhost:8000/dashboard to access this view
+    path('account/dashboard', views.dashboard, name='dashboard'), # the string 'dashboard' is the default URL after the BASE URL so it will be localhost:8000/dashboard to access this view
     path('milestones', views.milestones, name='milestones'),
     path('track', views.track, name='track'),
-
-    path('registration/login/', auth_views.LoginView.as_view(template_name='website/registration/login.html'), name='login'), # Use the built in login view with a custom template
-    path('registration/logout/', auth_views.LogoutView.as_view(template_name='website/registration/logout.html'), name='logout'), # Use the built in logout view with a custom template
+    path('registration/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('registration/logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'), # Use the built in logout view with a custom template
 ]
