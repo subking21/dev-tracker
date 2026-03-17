@@ -1,26 +1,62 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}
-Dashboard
-{% endblock title %}
+{% block title %}Dashboard{% endblock title %}
 
-{% block content %} 
-This is your dashboard page.
+{% block content %}
+<div class="container mt-4">
+    <h2>Welcome, {{ user.username }}!</h2>
 
-{% if user.is_authenticated %}
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center p-3">
+                <h3>{{ total }}</h3>
+                <p>Total Solved</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3" style="border-color: green;">
+                <h3 style="color: green;">{{ easy_count }}</h3>
+                <p>Easy</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3" style="border-color: orange;">
+                <h3 style="color: orange;">{{ medium_count }}</h3>
+                <p>Medium</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center p-3" style="border-color: red;">
+                <h3 style="color: red;">{{ hard_count }}</h3>
+                <p>Hard</p>
+            </div>
+        </div>
+    </div>
 
-    <p>Welcome, {{ user.username }}!</p>
-    <h1>Your Solved Problems:</h1>
-    {% for problem in problems %}
-        <h2>{{ problem.title }}</h2>
-        <p>Source: {{ problem.get_source_display }}</p>
-        <p>Difficulty: {{ problem.get_difficulty_display }}</p>
-    {% empty %}
-        <p>No problems found.</p>
-    {% endfor %}
-
-{% else %}
-    <p>Please <a href="{% url 'website:login' %}">log in</a> to access your dashboard.</p>
-{% endif %}
-
+    <h3 class="mt-5">Recently Solved</h3>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Source</th>
+                <th>Difficulty</th>
+                <th>Date Solved</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for problem in problems %}
+            <tr>
+                <td>{{ problem.title }}</td>
+                <td>{{ problem.get_source_display }}</td>
+                <td>{{ problem.get_difficulty_display }}</td>
+                <td>{{ problem.date_solved }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No problems logged yet. <a href="{% url 'website:track' %}">Add one now</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock content %}

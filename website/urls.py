@@ -13,4 +13,5 @@ urlpatterns = [
     path('track', views.track, name='track'),
     path('registration/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('registration/logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'), # Use the built in logout view with a custom template
+    path('registration/signup/', views.signup, name='signup'), # Add the signup URL pattern
 ]
