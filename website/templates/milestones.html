@@ -1,9 +1,39 @@
 {% extends "base.html" %}
 
-{% block title %}
-Milestones Page
-{% endblock title %}
+{% block title %}Milestones{% endblock title %}
 
 {% block content %} 
-This is your milestones page.
+<div class="container mt-5">
+    <h2>Log a Milestone</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Milestone</button>
+    </form>
+</div>
+<div class="container">
+<h3 class="mt-5">Recently Achieved Milestones</h3>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Topic</th>
+            <th>Description</th>
+            <th>Date Achieved</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for milestone in milestones %}
+        <tr>
+            <td>{{ milestone.topic }}</td>
+            <td>{{ milestone.description }}</td>
+            <td>{{ milestone.date_achieved }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No milestones logged yet. <a href="{% url 'website:milestones' %}">Add one now</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
 {% endblock content %}

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required # Import login_require
 from django.contrib.auth.forms import UserCreationForm # Import UserCreationForm for signup functionality
 from django.shortcuts import redirect # Import redirect to redirect users after login
 from django.contrib.auth.decorators import login_required # Import login_required decorator to restrict access to certain views
-from .forms import ProblemForm # Import forms for handling problem and milestone submissions
+from .forms import MilestoneForm, ProblemForm # Import forms for handling problem and milestone submissions
 
 # Create your views here.
 
@@ -31,8 +31,19 @@ def dashboard(request):
 def login(request): # Login page view 
     return render(request, 'login.html')
 
+@login_required
 def milestones(request): # Milestones page view 
-    return render(request, 'milestones.html')
+    if request.method == 'POST':
+        form = MilestoneForm(request.POST)
+        if form.is_valid():
+            milestone = form.save(commit=False)
+            milestone.user = request.user
+            milestone.save()
+            return redirect('website:milestones')
+    else:
+        form = MilestoneForm()
+    user_milestones = Milestone.objects.filter(user=request.user).order_by('-date_achieved')
+    return render(request, 'milestones.html', {'form': form, 'milestones': user_milestones})
 
 @login_required
 def track(request):
