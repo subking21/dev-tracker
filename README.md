@@ -4,7 +4,7 @@ A full-stack Django web application that helps developers track their learning, 
 
 ## Why I made this project
 
-I started this project because I wanted to see my progress all in one place while also getting better at building full-stack applications. I didn't want to build something I wouldn't use — like a blog app. I will be using this application myself, and it is easily scalable so I can add more features as I keep improving as a developer. This project has really helped speed up my learning of real-world Django development while also practicing problem solving on LeetCode at the same time. If you're looking at the code and wondering why there are so many comments, it's because I was learning the Django framework as I built it.
+I started this project because I wanted to see my progress all in one place while also getting better at building full-stack applications. I didn't want to build something I wouldn't use, like a blog app. I will be using this application myself, and it is easily scalable so I can add more features as I keep improving as a developer. This project has really helped speed up my learning of real-world Django development while also practicing problem solving on LeetCode at the same time. If you're looking at the code and wondering why there are so many comments, it's because I was learning the Django framework as I built it.
 
 ## Overview
 
