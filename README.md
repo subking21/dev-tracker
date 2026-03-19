@@ -1,129 +1,113 @@
-# Dev Tracker - Personal Developer Progress Tracker
+# DevTrack.io - Personal Developer Progress Tracker
 
-A full-stack Django web application that helps developers track their learning, coding challenges, and daily progress across platforms like AlgoMap, LeetCode, and general programming study sessions.
+A full-stack Django web application that helps developers track their learning, coding challenges, and daily progress across platforms like AlgoMap and LeetCode.
 
 ## Why I made this project
-I started this project beacuse I wanted to get be able to see my progress all on one website while also get better at making full-stack applications. I didn't want it to be something that I won't use as soon as I make it, like a blog app for example. It doesn't interest me to spend so much time on developing to not even use it. I **_will_** be using this applicaiton when I finish it (you can too), and it is easily scalable so in the future I can add more skills and practice techniques as I keep getting better at software developing. This has really helped with speeding up the learning process of making real world applications and also practicing simple logic in Leetcode at the same time. If your looking at the code and wondering why there's so many comments, it's beacuse I am learning the Django framework at the same time.
+
+I started this project because I wanted to see my progress all in one place while also getting better at building full-stack applications. I didn't want to build something I wouldn't use — like a blog app. I will be using this application myself, and it is easily scalable so I can add more features as I keep improving as a developer. This project has really helped speed up my learning of real-world Django development while also practicing problem solving on LeetCode at the same time. If you're looking at the code and wondering why there are so many comments, it's because I was learning the Django framework as I built it.
 
 ## Overview
-**DevTracker** is a productivity and learning companion for developers.
-It allows you to:
-- Track AlgoMap / LeetCode problems you’ve completed
-- Rate their difficulty
-- Store notes and reflections
-- Log daily learning sessions
-- Document milestones (like new Django concepts learned)
-- View your overall progress in a dashboard
 
-This project demonstrates real-world Django developer skills:
-- Models, Views and Templates
-- User authentication
-- CRUD operations
-- Django Admin customisation
-- Clean project architecture
-- Optional REST API (Django REST Framework)
-- Deployment on Render/Railway
+**DevTrack.io** is a productivity and learning companion for developers. It allows you to:
+- Track AlgoMap / LeetCode problems you've completed
+- Rate their difficulty (Easy, Medium, Hard)
+- Store notes and reflections on each problem
+- Log learning milestones
+- View your overall progress on a personal dashboard
 
 ## Features
 
 ### User Accounts
-- Login, Register and Logout
-- Secure authentication using Django's built in User model
+- Login, Sign Up and Logout
+- Secure authentication using Django's built-in User model
+- Personal data — each user only sees their own problems and milestones
 
 ### Problem Tracker
-- Add problems you've solved (Algomap, LeetCode, Custom)
+- Add problems you've solved (LeetCode, AlgoMap, Custom)
 - Custom difficulty rating (Easy, Medium, Hard)
-- Notes for explinations or thoughts
+- Notes for explanations or thoughts
 - Automatic date tracking
-- List + Detail views
-- Edit + Delete options
 
 ### Learning Milestones
-Track progress as you learn:
-
-- Django concepts
-- Python techniques
-- CS fundamentals
-- Anything related to your dev journey
-
-### Daily Sessions
-- Log daily learning time
-- Add notes for what your studied
-- Track consistency and streaks
+- Log milestones as you progress through topics
+- Add a description and date achieved
+- View all your milestones in one place
 
 ### Dashboard
-- Total problem solved
-- Difficulty distribution
-- Daily study streak
-- Recently completed milestones
+- Total problems solved
+- Difficulty breakdown (Easy / Medium / Hard)
+- Recently solved problems table
 
-### Tech Stack
-- Python3
+## Tech Stack
+- Python 3
 - Django
-- SQLite/PostgreSQL
+- SQLite
 - HTML/CSS (Django Templates)
-- Bootstrap and TailwindCSS 
-- Django REST Framwork
-- Render/Railway for deployment
+- Bootstrap
+- Docker
 
-### Project Structure
+## Running with Docker
 ```bash
-devtracker/
+git clone https://github.com/yourusername/devtrack.git
+cd devtrack
+docker-compose up --build
+```
+Then go to http://localhost:8000
+
+## Running Locally
+```bash
+git clone https://github.com/yourusername/devtrack.git
+cd devtrack
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+Then go to http://127.0.0.1:8000
+
+## Project Structure
+```bash
+DevTracker/
 │
-├── DevTracker/       
-│   ├── __init__.py      
-│   ├── asgi.py      
-│   ├── settings.py        
-│   ├── urls.py    
-│   └── wsgi.py   
+├── DevTracker/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 │
-├── website/    
+├── website/
 │   ├── migrations/
-│       ├── 0001_initial.py
-│       ├── 0002_initial.py
-│       └── __init__.py
 │   ├── templates/
-│       ├── base.html   
-│       ├── dashboard.html
-│       ├── index.html
-│       ├── login.html
-│       ├── milestones.html
-│       └── track.html
-│    ├── __init__.py
-│    ├── admin.py
-│    ├── apps.py
-│    ├── models.py
-│    ├── tests.py
-│    ├── urls.py
-│    └── views.py
-├── .gitignore
+│   │   ├── account/
+│   │   │   └── dashboard.html
+│   │   ├── registration/
+│   │   │   ├── login.html
+│   │   │   ├── logged_out.html
+│   │   │   └── signup.html
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── milestones.html
+│   │   └── track.html
+│   ├── admin.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
 ├── manage.py
 └── README.md
 ```
 
-### Getting Started
-- Clone to Repo
-```bash
-git clone https://github.com/yourusername/dev-tracker.git
-cd dev-tracker
-```
-- Create a virtual environment
-```bash
-python -m venv venv
-source venv/bin/activate # Mac/Linux
-venv/Scripts/activate    # Windows
-```
-- Run the server
-```bash
-python manage.py runserver
-```
-
-### Planned Features
-- REST API endpoint
+## Planned Features
+- PostgreSQL migration
+- Django REST Framework API endpoints
 - Progress charts
 - Dark mode
-- Problem tages
-- Search + Filters
+- Problem tags
+- Search and filters
 - User profile page
 
 ## Licence
